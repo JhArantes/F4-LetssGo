@@ -22,3 +22,22 @@ EXCEPTION
 		
 END FUN_DB_CALCULA_VL_TOT_VENDA;
 /
+
+
+--===================================================================================================================
+
+
+--
+-- Script criado para acionar a função FUN_DB_CALCULA_VL_TOT_VENDA
+--
+SET SERVEROUTPUT ON;
+DECLARE
+	V_ANO NUMBER(4) := EXTRACT( YEAR FROM SYSDATE);
+	V_VL_TOT_VENDA_BRUTO NUMBER;
+BEGIN
+	V_VL_TOT_VENDA_BRUTO := FUN_DB_CALCULA_VL_TOT_VENDA (V_ANO);
+	DBMS_OUTPUT.PUT_LINE('O ANO DE (' || V_ANO || ') TEVE O VALOR TOTAL DE VENDA BRUTO EM:' || V_VL_TOT_VENDA_BRUTO );
+END;
+
+
+--===================================================================================================================
